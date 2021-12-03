@@ -1,0 +1,31 @@
+pipeline {
+    agent any 
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Hello world!'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploy.'
+            }
+        }
+    }
+    post{
+        always{
+            echo 'Checking process...'
+        }
+        success{
+            echo 'All working Process done'
+        }
+        failure{
+            echo 'Process Failure!!!'
+        }
+    }
+}
